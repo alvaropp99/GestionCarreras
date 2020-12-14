@@ -17,15 +17,15 @@ public class Carrera {
     private Date fecha;
     private String lugar;
     private Integer nParticipantes;
-    private ArrayList <Corredor> corredores;
 
-    public Carrera(String nombre, Date fecha, String lugar, Integer nParticipantes, ArrayList<Corredor> corredores) {
+    public Carrera(String nombre, Date fecha, String lugar, Integer nParticipantes) {
         this.nombre = nombre;
         this.fecha = fecha;
         this.lugar = lugar;
         this.nParticipantes = nParticipantes;
-        this.corredores = corredores;
     }
+
+    
 
     public Carrera() {
     }
@@ -62,30 +62,21 @@ public class Carrera {
         this.nParticipantes = nParticipantes;
     }
 
-    public ArrayList<Corredor> getCorredores() {
-        return corredores;
-    }
-
-    public void setCorredores(ArrayList<Corredor> corredores) {
-        this.corredores = corredores;
-    }
     
-    public String[]infoCarrera(){
-        String[]carrera=new String[6];
-        carrera[0]=nombre;
-        carrera[1]=fecha.toString();
-        carrera[2]=lugar;
-        carrera[3]=nParticipantes.toString();
-        carrera[4]=corredores.toString();
+    public String[] infoCarrera(){
+        String[] values=new String[5];
+        values[0]=nombre;
+        values[1]=fecha.toString();
+        values[2]=lugar;
+        values[3]=nParticipantes.toString();
         
-        return carrera;
-        
+        return values;
     }
 
     @Override
     public String toString() {
-        String carrera="Nombre: "+nombre+"\nFecha: "+fecha+"\nLugar: "+lugar+
-                "\nParticipantes: "+nParticipantes+"\nCorredores: "+corredores;
-        return carrera;
+        return "Carrera{" + "nombre=" + nombre + ", fecha=" + fecha + ", lugar=" + lugar + ", nParticipantes=" + nParticipantes +'}';
     }
+    
+    
 }

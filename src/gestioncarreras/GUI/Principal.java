@@ -7,8 +7,13 @@ package gestioncarreras.GUI;
 
 import gestioncarreras.objetos.Carrera;
 import gestioncarreras.objetos.Corredor;
+import gestioncarreras.objetos.Dorsal;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,6 +24,34 @@ public class Principal extends javax.swing.JFrame {
     ModificarCorredor modificarCorredor;
     Corredor corredor;
     AltaCorredor altaCorredor;
+
+    public JTable getjTableCarreras() {
+        return jTableCarreras;
+    }
+
+    public void setjTableCarreras(JTable jTableCarreras) {
+        this.jTableCarreras = jTableCarreras;
+    }
+    AltaCarrera altaCarrera;
+    
+    ArrayList<Carrera>lista;    
+
+    public ArrayList<Carrera> getLista() {
+        return lista;
+    }
+
+    public void setLista(ArrayList<Carrera> lista) {
+        this.lista = lista;
+    }
+    DefaultTableModel dtm;
+
+    public DefaultTableModel getDtm() {
+        return dtm;
+    }
+
+    public void setDtm(DefaultTableModel dtm) {
+        this.dtm = dtm;
+    }
     public Principal() {
         initComponents();
     }
@@ -29,16 +62,16 @@ public class Principal extends javax.swing.JFrame {
         jTableCorredores.setModel(dtm);
     }
     
-    public void aniadirCorredor(Corredor corredor){
-        DefaultTableModel dtm=(DefaultTableModel)jTableCorredores.getModel();
-        dtm.addRow(corredor.infoCorredor());
-    }
-    
-    private void inicializarTablaCarreras(){
+    private void inicializarTablaCarrera(){
         DefaultTableModel dtm=new DefaultTableModel();
         dtm.setColumnIdentifiers(new String[]{"Nombre","Fecha Carrera","Lugar Carrera","Nº Participantes","Lista Participantes"});
         jTableCarreras.setModel(dtm);
     }
+    
+    public void aniadirCorredor(Corredor corredor){
+        DefaultTableModel dtm=(DefaultTableModel)jTableCorredores.getModel();
+        dtm.addRow(corredor.infoCorredor());
+    } 
     
     public void aniadirCarrera(Carrera carrera){
         DefaultTableModel dtm=(DefaultTableModel)jTableCarreras.getModel();
@@ -238,7 +271,9 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonModifCorredorActionPerformed
 
     private void jMenuItemAltaCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAltaCarreraActionPerformed
-               
+
+        altaCarrera=new AltaCarrera(this,true);
+        altaCarrera.setVisible(true);
     }//GEN-LAST:event_jMenuItemAltaCarreraActionPerformed
 
     /**

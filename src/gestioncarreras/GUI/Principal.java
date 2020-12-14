@@ -5,7 +5,10 @@
  */
 package gestioncarreras.GUI;
 
+import gestioncarreras.objetos.Carrera;
 import gestioncarreras.objetos.Corredor;
+import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -13,9 +16,10 @@ import javax.swing.table.DefaultTableModel;
  * @author alvar
  */
 public class Principal extends javax.swing.JFrame {
-    
+    ModificarCorredor modificarCorredor;
     Corredor corredor;
     AltaCorredor altaCorredor;
+    AltaCarrera altaCarrera;
     public Principal() {
         initComponents();
     }
@@ -29,6 +33,17 @@ public class Principal extends javax.swing.JFrame {
     public void aniadirCorredor(Corredor corredor){
         DefaultTableModel dtm=(DefaultTableModel)jTableCorredores.getModel();
         dtm.addRow(corredor.infoCorredor());
+    }
+    
+    private void inicializarTablaCarreras(){
+        DefaultTableModel dtm=new DefaultTableModel();
+        dtm.setColumnIdentifiers(new String[]{"Nombre","Fecha Carrera","Lugar Carrera","Nº Participantes","Lista Participantes"});
+        jTableCarreras.setModel(dtm);
+    }
+    
+    public void aniadirCarrera(Carrera carrera){
+        DefaultTableModel dtm=(DefaultTableModel)jTableCarreras.getModel();
+        dtm.addRow(carrera.infoCarrera());
     }
 
     /**
@@ -97,9 +112,19 @@ public class Principal extends javax.swing.JFrame {
 
         jButtonBorrarCorredor.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jButtonBorrarCorredor.setText("BORRAR");
+        jButtonBorrarCorredor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBorrarCorredorActionPerformed(evt);
+            }
+        });
 
         jButtonModifCorredor.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jButtonModifCorredor.setText("MODIFICAR");
+        jButtonModifCorredor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModifCorredorActionPerformed(evt);
+            }
+        });
 
         jMenuCorredores.setText("Corredores");
 
@@ -116,6 +141,11 @@ public class Principal extends javax.swing.JFrame {
         jMenuCarreras.setText("Carreras");
 
         jMenuItemAltaCarrera.setText("Alta");
+        jMenuItemAltaCarrera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAltaCarreraActionPerformed(evt);
+            }
+        });
         jMenuCarreras.add(jMenuItemAltaCarrera);
 
         jMenuBar1.add(jMenuCarreras);
@@ -184,6 +214,33 @@ public class Principal extends javax.swing.JFrame {
     private void jButtonBorrarCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarCarreraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonBorrarCarreraActionPerformed
+
+    private void jButtonBorrarCorredorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarCorredorActionPerformed
+        // TODO add your handling code here:
+        int registro=jTableCorredores.getSelectedRow();
+        if(registro>=0){
+            DefaultTableModel dtm=(DefaultTableModel)jTableCorredores.getModel();
+            dtm.removeRow(registro);
+        }else{
+            JOptionPane.showMessageDialog(null, "Compruebe que la tabla no se encuentre vacía, en caso de que no seleccione el registro que quiera eliminar");
+        }
+    }//GEN-LAST:event_jButtonBorrarCorredorActionPerformed
+
+    private void jButtonModifCorredorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModifCorredorActionPerformed
+      
+        int registro=jTableCorredores.getSelectedRow();
+        if(registro>0){
+            modificarCorredor=new ModificarCorredor(this, true);
+            modificarCorredor.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Compruebe que la tabla no se encuentre vacía, en caso de que no, seleccione el registro que quiera modificar");
+        }
+    }//GEN-LAST:event_jButtonModifCorredorActionPerformed
+
+    private void jMenuItemAltaCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAltaCarreraActionPerformed
+        altaCarrera=new AltaCarrera(this,true);
+        altaCarrera.setVisible(true);        
+    }//GEN-LAST:event_jMenuItemAltaCarreraActionPerformed
 
     /**
      * @param args the command line arguments

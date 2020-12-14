@@ -5,31 +5,18 @@
  */
 package gestioncarreras.GUI;
 
-import gestioncarreras.objetos.Corredor;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import javax.swing.JSpinner;
-
 /**
  *
  * @author alvar
  */
-public class AltaCorredor extends javax.swing.JDialog {
-    
-    private Principal principal;
-    /**
-     * Creates new form AltaCorredor
-     */
-    public AltaCorredor(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
-        principal=(Principal)parent;
-        initComponents();
-    }
+public class ModificarCorredor extends javax.swing.JDialog {
 
-    AltaCorredor(Principal aThis, Corredor corredor, boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    /**
+     * Creates new form ModificarCorredor
+     */
+    public ModificarCorredor(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
+        initComponents();
     }
 
     /**
@@ -41,33 +28,28 @@ public class AltaCorredor extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        jLabelModifCorr = new javax.swing.JLabel();
         jLabelNombre = new javax.swing.JLabel();
         jTextFieldNombre = new javax.swing.JTextField();
         jLabelDni = new javax.swing.JLabel();
         jTextFieldDni = new javax.swing.JTextField();
         jLabelFechaNac = new javax.swing.JLabel();
+        jDateChooserFechaNac = new com.toedter.calendar.JDateChooser();
         jLabelDirec = new javax.swing.JLabel();
         jTextFieldDirec = new javax.swing.JTextField();
         jLabelTfno = new javax.swing.JLabel();
         jTextFieldTfno = new javax.swing.JTextField();
-        jButtonAlta = new javax.swing.JButton();
-        jDateChooserFechaNac = new com.toedter.calendar.JDateChooser();
+        jButtonModif = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 30)); // NOI18N
-        jLabel1.setText("Alta Corredores");
+        jLabelModifCorr.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabelModifCorr.setText("MODIFICAR CORREDOR");
 
         jLabelNombre.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelNombre.setText("Nombre:");
 
         jTextFieldNombre.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jTextFieldNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldNombreActionPerformed(evt);
-            }
-        });
 
         jLabelDni.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelDni.setText("DNI:");
@@ -83,68 +65,58 @@ public class AltaCorredor extends javax.swing.JDialog {
         jTextFieldDirec.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
         jLabelTfno.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabelTfno.setText("Teléfono: ");
+        jLabelTfno.setText("Teléfono:");
 
         jTextFieldTfno.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        jButtonAlta.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButtonAlta.setText("ALTA");
-        jButtonAlta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAltaActionPerformed(evt);
-            }
-        });
-
-        jDateChooserFechaNac.setMaxSelectableDate(new java.util.Date(253370764872000L));
+        jButtonModif.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButtonModif.setText("MODIFICAR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(155, 155, 155)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelNombre)
-                            .addComponent(jLabelDni)
-                            .addComponent(jLabelFechaNac)
-                            .addComponent(jLabelDirec)
-                            .addComponent(jLabelTfno))
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 228, Short.MAX_VALUE)
-                            .addComponent(jTextFieldDni)
-                            .addComponent(jTextFieldDirec)
-                            .addComponent(jTextFieldTfno)
-                            .addComponent(jDateChooserFechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addGap(130, 130, 130)
+                .addComponent(jLabelModifCorr)
+                .addGap(0, 130, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButtonAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(190, 190, 190))
+                .addGap(72, 72, 72)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelNombre)
+                    .addComponent(jLabelDni)
+                    .addComponent(jLabelFechaNac)
+                    .addComponent(jLabelDirec)
+                    .addComponent(jLabelTfno))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonModif)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextFieldNombre)
+                        .addComponent(jTextFieldDni)
+                        .addComponent(jDateChooserFechaNac, javax.swing.GroupLayout.DEFAULT_SIZE, 242, Short.MAX_VALUE)
+                        .addComponent(jTextFieldDirec)
+                        .addComponent(jTextFieldTfno)))
+                .addGap(99, 99, 99))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jLabel1)
-                .addGap(60, 60, 60)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNombre)
-                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(97, 97, 97)
+                .addComponent(jLabelModifCorr)
+                .addGap(93, 93, 93)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelNombre))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDni)
                     .addComponent(jTextFieldDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelFechaNac)
                     .addComponent(jDateChooserFechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDirec)
                     .addComponent(jTextFieldDirec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -152,30 +124,13 @@ public class AltaCorredor extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelTfno)
                     .addComponent(jTextFieldTfno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
-                .addComponent(jButtonAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(jButtonModif, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextFieldNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldNombreActionPerformed
-
-    private void jButtonAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltaActionPerformed
-        // TODO add your handling code here:
-        String nombre=jTextFieldNombre.getText();
-        String dni=jTextFieldDni.getText();        
-        Date fechaNac=jDateChooserFechaNac.getDate();
-        String direc=jTextFieldDirec.getText();
-        Integer tfno=Integer.parseInt(jTextFieldTfno.getText());
-        Corredor corredor=new Corredor(nombre,dni,fechaNac,direc,tfno);
-        principal.aniadirCorredor(corredor);
-        
-        dispose();
-    }//GEN-LAST:event_jButtonAltaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,20 +149,20 @@ public class AltaCorredor extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AltaCorredor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarCorredor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AltaCorredor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarCorredor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AltaCorredor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarCorredor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AltaCorredor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarCorredor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AltaCorredor dialog = new AltaCorredor(new javax.swing.JFrame(), true);
+                ModificarCorredor dialog = new ModificarCorredor(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -220,12 +175,12 @@ public class AltaCorredor extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAlta;
+    private javax.swing.JButton jButtonModif;
     private com.toedter.calendar.JDateChooser jDateChooserFechaNac;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelDirec;
     private javax.swing.JLabel jLabelDni;
     private javax.swing.JLabel jLabelFechaNac;
+    private javax.swing.JLabel jLabelModifCorr;
     private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelTfno;
     private javax.swing.JTextField jTextFieldDirec;

@@ -19,7 +19,6 @@ public class Principal extends javax.swing.JFrame {
     ModificarCorredor modificarCorredor;
     Corredor corredor;
     AltaCorredor altaCorredor;
-    AltaCarrera altaCarrera;
     public Principal() {
         initComponents();
     }
@@ -227,19 +226,19 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBorrarCorredorActionPerformed
 
     private void jButtonModifCorredorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModifCorredorActionPerformed
-      
         int registro=jTableCorredores.getSelectedRow();
-        if(registro>0){
+        if(registro>=0){
+            DefaultTableModel dtm=(DefaultTableModel)jTableCorredores.getModel();
+            dtm.removeRow(registro);
             modificarCorredor=new ModificarCorredor(this, true);
             modificarCorredor.setVisible(true);
         }else{
-            JOptionPane.showMessageDialog(null, "Compruebe que la tabla no se encuentre vacía, en caso de que no, seleccione el registro que quiera modificar");
+            JOptionPane.showMessageDialog(null, "Compruebe que la tabla no se encuentre vacía, en caso de que no seleccione el registro que quiera modificar");
         }
     }//GEN-LAST:event_jButtonModifCorredorActionPerformed
 
     private void jMenuItemAltaCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAltaCarreraActionPerformed
-        altaCarrera=new AltaCarrera(this,true);
-        altaCarrera.setVisible(true);        
+               
     }//GEN-LAST:event_jMenuItemAltaCarreraActionPerformed
 
     /**

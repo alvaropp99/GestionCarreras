@@ -4,18 +4,21 @@
  * and open the template in the editor.
  */
 package gestioncarreras.GUI;
-
+import gestioncarreras.GUI.Principal;
+import gestioncarreras.objetos.Corredor;
+import java.util.Date;
 /**
  *
  * @author alvar
  */
 public class ModificarCorredor extends javax.swing.JDialog {
-
+    private Principal principal;
     /**
      * Creates new form ModificarCorredor
      */
     public ModificarCorredor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        principal=(Principal)parent;
         initComponents();
     }
 
@@ -71,6 +74,11 @@ public class ModificarCorredor extends javax.swing.JDialog {
 
         jButtonModif.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jButtonModif.setText("MODIFICAR");
+        jButtonModif.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModifActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,6 +139,19 @@ public class ModificarCorredor extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModifActionPerformed
+        // TODO add your handling code here:
+        String nombre=jTextFieldNombre.getText();
+        String dni=jTextFieldDni.getText();        
+        Date fechaNac=jDateChooserFechaNac.getDate();
+        String direc=jTextFieldDirec.getText();
+        Integer tfno=Integer.parseInt(jTextFieldTfno.getText());
+        Corredor corredor=new Corredor(nombre,dni,fechaNac,direc,tfno);
+        principal.aniadirCorredor(corredor);
+        
+        dispose();
+    }//GEN-LAST:event_jButtonModifActionPerformed
 
     /**
      * @param args the command line arguments

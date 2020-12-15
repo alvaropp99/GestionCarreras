@@ -6,21 +6,19 @@
 package gestioncarreras.GUI;
 
 import gestioncarreras.objetos.Carrera;
-import gestioncarreras.objetos.Corredor;
 import java.util.Date;
-import javax.swing.DefaultListModel;
-import javax.swing.ListSelectionModel;
+
 /**
  *
  * @author alvar
  */
-public class AltaCarrera extends javax.swing.JDialog {
-    
+public class ModificarCarrera extends javax.swing.JDialog {
+
     private Principal principal;
     /**
-     * Creates new form AltaCarrera
+     * Creates new form ModificarCarrera
      */
-    public AltaCarrera(java.awt.Frame parent, boolean modal) {
+    public ModificarCarrera(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         principal=(Principal)parent;
         initComponents();
@@ -35,21 +33,21 @@ public class AltaCarrera extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelAltaCarrera = new javax.swing.JLabel();
+        jLabelModificarCarr = new javax.swing.JLabel();
         jLabelNombre = new javax.swing.JLabel();
         jTextFieldNombre = new javax.swing.JTextField();
         jLabelFechaCarr = new javax.swing.JLabel();
-        jDateChooserCarrera = new com.toedter.calendar.JDateChooser();
+        jDateChooserFechaCarr = new com.toedter.calendar.JDateChooser();
         jLabelLugar = new javax.swing.JLabel();
         jTextFieldLugar = new javax.swing.JTextField();
-        jLabelParticipantes = new javax.swing.JLabel();
-        jTextFieldParticipantes = new javax.swing.JTextField();
-        jButtonAlta = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jTextFieldParitcipantes = new javax.swing.JTextField();
+        jButtonModif = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabelAltaCarrera.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabelAltaCarrera.setText("Alta Carrera");
+        jLabelModificarCarr.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabelModificarCarr.setText("Modificar Carrera");
 
         jLabelNombre.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabelNombre.setText("Nombre:");
@@ -64,16 +62,16 @@ public class AltaCarrera extends javax.swing.JDialog {
 
         jTextFieldLugar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        jLabelParticipantes.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabelParticipantes.setText("Nº Participantes:");
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel1.setText("Nº Participanrtes:");
 
-        jTextFieldParticipantes.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jTextFieldParitcipantes.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
 
-        jButtonAlta.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jButtonAlta.setText("ALTA");
-        jButtonAlta.addActionListener(new java.awt.event.ActionListener() {
+        jButtonModif.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jButtonModif.setText("MODIFICAR");
+        jButtonModif.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAltaActionPerformed(evt);
+                jButtonModifActionPerformed(evt);
             }
         });
 
@@ -82,63 +80,63 @@ public class AltaCarrera extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(210, 210, 210)
-                        .addComponent(jLabelAltaCarrera))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelNombre)
-                            .addComponent(jLabelFechaCarr)
-                            .addComponent(jLabelLugar)
-                            .addComponent(jLabelParticipantes))
-                        .addGap(56, 56, 56)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldLugar)
-                            .addComponent(jDateChooserCarrera, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
-                            .addComponent(jTextFieldNombre)
-                            .addComponent(jTextFieldParticipantes)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(232, 232, 232)
-                        .addComponent(jButtonAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                    .addComponent(jLabelLugar)
+                    .addComponent(jLabelFechaCarr)
+                    .addComponent(jLabelNombre)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextFieldNombre)
+                    .addComponent(jDateChooserFechaCarr, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                    .addComponent(jTextFieldLugar)
+                    .addComponent(jTextFieldParitcipantes))
+                .addGap(64, 64, 64))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelModificarCarr)
+                .addGap(168, 168, 168))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(199, 199, 199)
+                .addComponent(jButtonModif)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabelAltaCarrera)
-                .addGap(61, 61, 61)
+                .addGap(44, 44, 44)
+                .addComponent(jLabelModificarCarr)
+                .addGap(85, 85, 85)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelNombre))
+                    .addComponent(jLabelNombre)
+                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelFechaCarr)
-                    .addComponent(jDateChooserCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooserFechaCarr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(75, 75, 75)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelLugar)
                     .addComponent(jTextFieldLugar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(75, 75, 75)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelParticipantes)
-                    .addComponent(jTextFieldParticipantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE)
-                .addComponent(jButtonAlta, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextFieldParitcipantes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(jButtonModif, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAltaActionPerformed
+    private void jButtonModifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModifActionPerformed
         // TODO add your handling code here:
         String nombre=jTextFieldNombre.getText();
-        Date fechaCarr=jDateChooserCarrera.getDate();
+        Date fechaCarr=jDateChooserFechaCarr.getDate();
         String lugarCarr=jTextFieldLugar.getText();
-        Integer nParticipantes=Integer.parseInt(jTextFieldParticipantes.getText());
+        Integer nParticipantes=Integer.parseInt(jTextFieldParitcipantes.getText());
         
         
         Carrera carrera=new Carrera(nombre,fechaCarr,lugarCarr,nParticipantes);
@@ -146,7 +144,7 @@ public class AltaCarrera extends javax.swing.JDialog {
         
         
         dispose();
-    }//GEN-LAST:event_jButtonAltaActionPerformed
+    }//GEN-LAST:event_jButtonModifActionPerformed
 
     /**
      * @param args the command line arguments
@@ -165,20 +163,20 @@ public class AltaCarrera extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AltaCarrera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarCarrera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AltaCarrera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarCarrera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AltaCarrera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarCarrera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AltaCarrera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ModificarCarrera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                AltaCarrera dialog = new AltaCarrera(new javax.swing.JFrame(), true);
+                ModificarCarrera dialog = new ModificarCarrera(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -191,15 +189,15 @@ public class AltaCarrera extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAlta;
-    private com.toedter.calendar.JDateChooser jDateChooserCarrera;
-    private javax.swing.JLabel jLabelAltaCarrera;
+    private javax.swing.JButton jButtonModif;
+    private com.toedter.calendar.JDateChooser jDateChooserFechaCarr;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelFechaCarr;
     private javax.swing.JLabel jLabelLugar;
+    private javax.swing.JLabel jLabelModificarCarr;
     private javax.swing.JLabel jLabelNombre;
-    private javax.swing.JLabel jLabelParticipantes;
     private javax.swing.JTextField jTextFieldLugar;
     private javax.swing.JTextField jTextFieldNombre;
-    private javax.swing.JTextField jTextFieldParticipantes;
+    private javax.swing.JTextField jTextFieldParitcipantes;
     // End of variables declaration//GEN-END:variables
 }

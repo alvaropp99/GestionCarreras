@@ -24,7 +24,8 @@ public class Principal extends javax.swing.JFrame {
     ModificarCorredor modificarCorredor;
     Corredor corredor;
     AltaCorredor altaCorredor;
-
+    ModificarCarrera modificarCarrera;
+    
     public JTable getjTableCarreras() {
         return jTableCarreras;
     }
@@ -54,6 +55,8 @@ public class Principal extends javax.swing.JFrame {
     }
     public Principal() {
         initComponents();
+        inicializarTablaCorredores();
+        inicializarTablaCarrera();
     }
     
     private void inicializarTablaCorredores(){
@@ -64,7 +67,7 @@ public class Principal extends javax.swing.JFrame {
     
     private void inicializarTablaCarrera(){
         DefaultTableModel dtm=new DefaultTableModel();
-        dtm.setColumnIdentifiers(new String[]{"Nombre","Fecha Carrera","Lugar Carrera","Nº Participantes","Lista Participantes"});
+        dtm.setColumnIdentifiers(new String[]{"Nombre","Fecha Carrera","Lugar Carrera","Nº Participantes"});
         jTableCarreras.setModel(dtm);
     }
     
@@ -77,6 +80,7 @@ public class Principal extends javax.swing.JFrame {
         DefaultTableModel dtm=(DefaultTableModel)jTableCarreras.getModel();
         dtm.addRow(carrera.infoCarrera());
     }
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -141,6 +145,11 @@ public class Principal extends javax.swing.JFrame {
 
         jButtonModifCarrera.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jButtonModifCarrera.setText("MODIFICAR");
+        jButtonModifCarrera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonModifCarreraActionPerformed(evt);
+            }
+        });
 
         jButtonBorrarCorredor.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jButtonBorrarCorredor.setText("BORRAR");
@@ -245,6 +254,13 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButtonBorrarCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarCarreraActionPerformed
         // TODO add your handling code here:
+        int registro=jTableCarreras.getSelectedRow();
+        if(registro>=0){
+            DefaultTableModel dtm=(DefaultTableModel)jTableCarreras.getModel();
+            dtm.removeRow(registro);
+        }else{
+            JOptionPane.showMessageDialog(null, "Compruebe que la tabla no se encuentre vacía, en caso de que no seleccione el registro que quiera eliminar");
+        }
     }//GEN-LAST:event_jButtonBorrarCarreraActionPerformed
 
     private void jButtonBorrarCorredorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarCorredorActionPerformed
@@ -275,6 +291,19 @@ public class Principal extends javax.swing.JFrame {
         altaCarrera=new AltaCarrera(this,true);
         altaCarrera.setVisible(true);
     }//GEN-LAST:event_jMenuItemAltaCarreraActionPerformed
+
+    private void jButtonModifCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonModifCarreraActionPerformed
+        // TODO add your handling code here:
+        int registro=jTableCarreras.getSelectedRow();
+        if(registro>=0){
+            DefaultTableModel dtm=(DefaultTableModel)jTableCarreras.getModel();
+            dtm.removeRow(registro);
+            modificarCarrera=new ModificarCarrera(this, true);
+            modificarCarrera.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Compruebe que la tabla no se encuentre vacía, en caso de que no seleccione el registro que quiera modificar");
+        }
+    }//GEN-LAST:event_jButtonModifCarreraActionPerformed
 
     /**
      * @param args the command line arguments
